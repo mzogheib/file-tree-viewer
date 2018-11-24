@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import './style.scss'
 import NodeFile from '../NodeFile'
 import NodeFolder from '../NodeFolder'
+import { isFile, isFolder, hasChildren } from '../../utils/fileUtils'
 
 class Node extends Component {
   constructor() {
@@ -15,21 +16,18 @@ class Node extends Component {
 
   toggleOpen(event) {
     event.stopPropagation()
-    if (this.props.node.type === 'file') {
+    if (isFile(this.props.node)) {
       return
     }
     this.setState({ open: !this.state.open })
   }
 
   renderNode(node) {
-    const canRenderChildren =
-      this.state.open && node.children && !!node.children.length
+    const canRenderChildren = this.state.open && hasChildren(node)
     return (
       <div className="node" onClick={this.toggleOpen}>
-        {node.type === 'file' && <NodeFile node={node} />}
-        {node.type === 'folder' && (
-          <NodeFolder node={node} open={this.state.open} />
-        )}
+        {isFile(node) && <NodeFile node={node} />}
+        {isFolder(node) && <NodeFolder node={node} open={this.state.open} />}
         {canRenderChildren &&
           node.children.map((childNode, index) => (
             <div key={index} className="node__child">
