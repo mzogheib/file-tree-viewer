@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div>
         <FileTree nodes={nodes} />
-        <FilesSummary nodes={nodes} />
+        <FilesSummary className="app__files-summary" nodes={nodes} />
       </div>
     )
   }

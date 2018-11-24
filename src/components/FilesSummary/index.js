@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function FilesSummary({ nodes }) {
+function FilesSummary({ className, nodes }) {
   const initialSummary = { count: 0, size: 0 }
   const getSummary = nodes =>
     nodes.reduce((summary, node) => {
@@ -18,11 +18,17 @@ function FilesSummary({ nodes }) {
 
   const { count, size } = getSummary(nodes)
 
-  return <div>{`Count: ${count} Size: ${size}`}</div>
+  return (
+    <div className={className}>
+      <div>Total Files: {count}</div>
+      <div>Total Filesize: {size}</div>
+    </div>
+  )
 }
 
 export default FilesSummary
 
 FilesSummary.propTypes = {
+  className: PropTypes.string,
   nodes: PropTypes.array.isRequired,
 }

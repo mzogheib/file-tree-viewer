@@ -17,4 +17,10 @@
     padding: 20px 50px;
     color: $color-foreground;
   }
+
+  &__files-summary {
+    border-top: 1px solid $color-foreground;
+    margin: 20px 0 0;
+    padding: 20px;
+  }
 }
