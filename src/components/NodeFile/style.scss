@@ -1,9 +1,18 @@
+@import '../../scss/typography.scss';
+
 .node-file {
   display: flex;
+  align-items: center;
   padding: 0 0 0 20px;
 
   &__name {
-    margin: 0 0 0 10px;
+    @extend %ellipsis;
+    margin: 0 10px 0;
     font-size: 14px;
+  }
+
+  &__size {
+    flex-shrink: 0;
+    font-size: 12px;
   }
 }

@@ -10,7 +10,9 @@ function NodeFolder({ node, open }) {
     <div className="node-folder">
       <Icon className="node-folder__chevron" type={chevronIconType} />
       <Icon className="node-folder__icon" type={folderIconType} />
-      <span className="node-folder__name">{node.name}</span>
+      <span className="node-folder__name" title={node.name}>
+        {node.name}
+      </span>
     </div>
   )
 }

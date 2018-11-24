@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import '../scss/variables.scss';
 
 .app {
   display: flex;
@@ -22,5 +22,17 @@
     border-top: 1px solid $color-foreground;
     margin: 20px 0 0;
     padding: 20px;
+  }
+
+  @media all and (max-width: 740px) {
+    margin: 0;
+
+    &__window {
+      flex-basis: 100%;
+    }
+
+    &__window-content {
+      padding: 20px;
+    }
   }
 }

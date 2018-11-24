@@ -1,11 +1,18 @@
+@import '../../scss/typography.scss';
+
 .node-folder {
   display: flex;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &__chevron {
     margin: 0 5px 0 0;
   }
 
   &__name {
+    @extend %ellipsis;
     margin: 0 0 0 10px;
     font-size: 14px;
   }
