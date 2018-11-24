@@ -1,0 +1,12 @@
+.node-folder {
+  display: flex;
+
+  &__chevron {
+    margin: 0 5px 0 0;
+  }
+
+  &__name {
+    margin: 0 0 0 10px;
+    font-size: 14px;
+  }
+}

@@ -1,3 +1,7 @@
 .node {
-  padding: 0 0 0 10px;
+  margin: 5px 0;
+
+  &__child {
+    padding: 0 0 0 20px;
+  }
 }
