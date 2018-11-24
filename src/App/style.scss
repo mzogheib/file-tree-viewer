@@ -16,6 +16,16 @@
   &__window-content {
     padding: 20px 50px;
     color: $color-foreground;
+
+    &--none {
+      padding: 100px 0;
+      text-align: center;
+    }
+  }
+
+  &__icon {
+    font-size: 40px;
+    margin: 0 0 15px;
   }
 
   &__files-summary {

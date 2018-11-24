@@ -4,6 +4,7 @@ import api from '../utils/api'
 import TitleBar from '../components/TitleBar'
 import FileTree from '../components/FileTree'
 import FilesSummary from '../components/FilesSummary'
+import Icon from '../components/Icon'
 
 class App extends Component {
   constructor() {
@@ -27,11 +28,21 @@ class App extends Component {
   }
 
   renderLoading() {
-    return 'Loading... server may be cold-starting so please be patient!'
+    return (
+      <div className="app__window-content--none">
+        <Icon className="app__icon" type="Spinner" spin={true} />
+        <small>Server may be waking up ... hang in there.</small>
+      </div>
+    )
   }
 
   renderError() {
-    return 'Could not load files!'
+    return (
+      <div className="app__window-content--none">
+        <Icon className="app__icon" type="Frown" />
+        <small>Could not load files.</small>
+      </div>
+    )
   }
 
   renderContent(nodes) {

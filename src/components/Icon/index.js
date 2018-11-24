@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './style.scss'
 import {
   FaFile as File,
   FaFolder as Folder,
@@ -7,9 +8,11 @@ import {
   FaChevronRight as ChevronRight,
   FaChevronDown as ChevronDown,
   FaQuestion as Question,
+  FaSpinner as Spinner,
+  FaRegFrownOpen as Frown,
 } from 'react-icons/fa'
 
-function Icon({ className, type }) {
+function Icon({ className, type, spin }) {
   let icon
   switch (type) {
     case 'File':
@@ -27,11 +30,18 @@ function Icon({ className, type }) {
     case 'ChevronDown':
       icon = <ChevronDown />
       break
+    case 'Spinner':
+      icon = <Spinner />
+      break
+    case 'Frown':
+      icon = <Frown />
+      break
     default:
       icon = <Question />
   }
 
-  return <div className={className}>{icon}</div>
+  const classNames = `${className} ${spin && 'icon__spin'}`
+  return <div className={classNames}>{icon}</div>
 }
 
 export default Icon
@@ -39,4 +49,5 @@ export default Icon
 Icon.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
+  spin: PropTypes.bool,
 }
