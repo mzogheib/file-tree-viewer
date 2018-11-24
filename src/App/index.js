@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './style.scss';
+import React, { Component } from 'react'
+import './style.scss'
 
 class App extends Component {
   render() {
@@ -7,8 +7,8 @@ class App extends Component {
       <div className="app">
         <span>Hello React</span>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
