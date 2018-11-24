@@ -51,10 +51,11 @@ class App extends Component {
       <div className="app">
         <div className="app__window">
           <TitleBar />
-          <div className="app__window-conent" />
-          {loading && this.renderLoading()}
-          {error && this.renderError()}
-          {ready && this.renderContent(this.state.nodes)}
+          <div className="app__window-content">
+            {loading && this.renderLoading()}
+            {error && this.renderError()}
+            {ready && this.renderContent(this.state.nodes)}
+          </div>
         </div>
       </div>
     )

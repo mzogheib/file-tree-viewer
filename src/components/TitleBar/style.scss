@@ -1,0 +1,20 @@
+@import '../../variables.scss';
+
+$diameter: 10px;
+
+.title-bar {
+  background-color: $color-foreground;
+  padding: 10px;
+  display: flex;
+
+  &__action {
+    width: $diameter;
+    height: $diameter;
+    border-radius: 50%;
+    background-color: darken($color-foreground, 10%);
+
+    &:not(:first-child) {
+      margin: 0 0 0 5px;
+    }
+  }
+}
