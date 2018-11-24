@@ -1,31 +1,60 @@
 import React, { Component } from 'react'
 import './style.scss'
+import api from '../utils/api'
 import TitleBar from '../components/TitleBar'
 import FileTree from '../components/FileTree'
 import FilesSummary from '../components/FilesSummary'
-
-// MOCK
-import mockResponses from '../mock-responses.json'
-const index = Math.floor(Math.random() * mockResponses.length)
-const mockResponse = mockResponses[index]
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      nodes: mockResponse.data,
+      nodes: null,
+      loading: true,
+      error: false,
     }
   }
 
+  componentDidMount() {
+    api
+      .get()
+      .then(response => {
+        this.setState({ nodes: response.data, loading: false, error: false })
+      })
+      .catch(() => {
+        this.setState({ nodes: null, loading: false, error: true })
+      })
+  }
+
+  renderLoading() {
+    return 'Loading... server may be cold-starting so please be patient!'
+  }
+
+  renderError() {
+    return 'Could not load files!'
+  }
+
+  renderContent(nodes) {
+    return (
+      <div>
+        <FileTree nodes={nodes} />
+        <FilesSummary nodes={nodes} />
+      </div>
+    )
+  }
+
   render() {
+    const loading = this.state.loading
+    const error = this.state.error
+    const ready = !this.state.loading && !this.state.error
     return (
       <div className="app">
         <div className="app__window">
           <TitleBar />
-          <div className="app__window-conent">
-            <FileTree nodes={this.state.nodes} />
-            <FilesSummary nodes={this.state.nodes} />
-          </div>
+          <div className="app__window-conent" />
+          {loading && this.renderLoading()}
+          {error && this.renderError()}
+          {ready && this.renderContent(this.state.nodes)}
         </div>
       </div>
     )
