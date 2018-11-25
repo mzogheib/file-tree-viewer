@@ -1,23 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { isFile, formatFilesize, hasChildren } from '../../utils/fileUtils'
+import { formatFilesize, getFilesSummary } from '../../utils/fileUtils'
 
 function FilesSummary({ nodes }) {
-  const initialSummary = { count: 0, size: 0 }
-  const getSummary = nodes =>
-    nodes.reduce((summary, node) => {
-      if (isFile(node)) {
-        // End of the node so increment the values
-        summary.count = summary.count + 1
-        summary.size = summary.size + node.size
-      } else if (hasChildren(node)) {
-        // Find more files
-        return getSummary(node.children)
-      }
-      return summary
-    }, initialSummary)
-
-  const { count, size } = getSummary(nodes)
+  const { count, size } = getFilesSummary(nodes)
 
   return (
     <div>

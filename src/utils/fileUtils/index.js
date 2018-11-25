@@ -16,4 +16,23 @@ const formatFilesize = sizeInBytes => {
   return `${(sizeInBytes / 1024 ** i).toFixed(1)} ${sizes[i]}`
 }
 
-export { isFile, isFolder, formatFilesize, hasChildren }
+const getFilesSummary = nodes =>
+  nodes.reduce(
+    (summary, node) => {
+      if (isFile(node)) {
+        // End of the node so increment the values
+        summary.count = summary.count + 1
+        summary.size = summary.size + node.size
+      } else if (hasChildren(node)) {
+        // Find more files and add to values
+        const childrenSummary = getFilesSummary(node.children)
+        summary.count = summary.count + childrenSummary.count
+        summary.size = summary.size + childrenSummary.size
+      }
+      return summary
+    },
+    // Initial value
+    { count: 0, size: 0 }
+  )
+
+export { isFile, isFolder, formatFilesize, hasChildren, getFilesSummary }
