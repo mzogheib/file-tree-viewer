@@ -21,4 +21,5 @@ export default NodeFolder
 
 NodeFolder.propTypes = {
   node: PropTypes.object.isRequired,
+  open: PropTypes.bool,
 }
