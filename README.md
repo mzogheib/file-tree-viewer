@@ -38,6 +38,7 @@ Demo can be found [here](https://awesome-shaw-d5992b.netlify.com/). Continuosly 
 
 - A review and (potential) trimming of `create-react-app` out of the box features, e.g. service worker
 - In a real world app, a custom Webpack build could be used as the build and dev environment requirements grow.
+- So far, tree depth hasn't been deep enough for the nodes to overflow out of the window div. A more robust solution would be to add horizontal scrollbars instead of truncating text. However, this could lead to a poor UX.
 - More unit test coverage.
 - A better/more abstracted implementation for the Icon component. As is, there is a lot of repetition. Higher Order Components are a potential candidate to improve the implementation.
 - Colours and font sizes are applied simply through parent classes and by taking advantage of SASS variables. As the app complexity grows a theme solution would be more appropriate, e.g. using React’s Context API
