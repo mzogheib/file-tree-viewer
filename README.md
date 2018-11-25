@@ -6,13 +6,14 @@ Demo can be found [here](https://awesome-shaw-d5992b.netlify.com/). Continuosly 
 
 ## Getting started
 
-| Step                 | Command                                                      |
-| -------------------- | ------------------------------------------------------------ |
-| Get the repo         | `git clone https://github.com/mzogheib/file-tree-viewer.git` |
-| Install dependencies | `cd file-tree-viewer && npm install`                         |
-| Develop              | `npm start`                                                  |
-| Test                 | `npm test`                                                   |
-| Build                | `npm run build`                                              |
+| Step                 | Command                                                                                                                          |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Install yarn         | `https://yarnpkg.com/lang/en/docs/install`. If you don't want to install yarn then `yarn` below can be replaced with `npx yarn`. |
+| Get the repo         | `git clone https://github.com/mzogheib/file-tree-viewer.git`                                                                     |
+| Install dependencies | `cd file-tree-viewer && yarn`                                                                                                    |
+| Develop              | `yarn start` or `npm start`                                                                                                      |
+| Test                 | `yarn test` or `npm test`                                                                                                        |
+| Build                | `yarn build` or `npm run build`                                                                                                  |
 
 ## Implementation Notes
 
