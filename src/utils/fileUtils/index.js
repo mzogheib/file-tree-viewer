@@ -7,13 +7,13 @@ const formatFilesize = sizeInBytes => {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
   // 0 or falsey
   if (!sizeInBytes) {
-    return
+    return '0'
   }
   const i = parseInt(Math.floor(Math.log(sizeInBytes) / Math.log(1024)), 10)
   if (i === 0) {
     return `${sizeInBytes} ${sizes[i]}`
   }
-  return `${(sizeInBytes / 1024 ** i).toFixed(1)} ${sizes[i]}`
+  return `${(sizeInBytes / 1024 ** i).toFixed()} ${sizes[i]}`
 }
 
 const getFilesSummary = nodes =>

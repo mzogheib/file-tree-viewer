@@ -34,16 +34,18 @@ it('checks if node has children', () => {
 })
 
 it('formats file size correctly', () => {
-  let bytes = 50
+  let bytes = 0
+  expect(formatFilesize(bytes)).toBe('0')
+  bytes = 50
   expect(formatFilesize(bytes)).toBe('50 Bytes')
   bytes = 1024
-  expect(formatFilesize(bytes)).toBe('1.0 KB')
+  expect(formatFilesize(bytes)).toBe('1 KB')
   bytes = 1048576
-  expect(formatFilesize(bytes)).toBe('1.0 MB')
-  bytes = 1073741824
-  expect(formatFilesize(bytes)).toBe('1.0 GB')
+  expect(formatFilesize(bytes)).toBe('1 MB')
+  bytes = 1073741824 * 2
+  expect(formatFilesize(bytes)).toBe('2 GB')
   bytes = 1099511627776
-  expect(formatFilesize(bytes)).toBe('1.0 TB')
+  expect(formatFilesize(bytes)).toBe('1 TB')
 })
 
 const mockResponse = {

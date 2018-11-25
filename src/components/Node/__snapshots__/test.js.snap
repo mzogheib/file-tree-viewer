@@ -38,7 +38,7 @@ exports[`renders correctly 1`] = `
     <span
       className="node-file__size"
     >
-      65.4 KB
+      65 KB
     </span>
   </div>
 </div>
@@ -202,7 +202,7 @@ exports[`renders correctly 4`] = `
     <span
       className="node-file__size"
     >
-      3.0 KB
+      3 KB
     </span>
   </div>
 </div>
@@ -246,7 +246,7 @@ exports[`renders correctly 5`] = `
     <span
       className="node-file__size"
     >
-      85.3 KB
+      85 KB
     </span>
   </div>
 </div>
