@@ -1,6 +1,6 @@
-const isFile = node => node.type === 'file'
-const isFolder = node => node.type === 'folder'
-const hasChildren = node => node.children && !!node.children.length
+const isFile = node => node && node.type === 'file'
+const isFolder = node => node && node.type === 'folder'
+const hasChildren = node => node && node.children && !!node.children.length
 
 // Credit https://gist.github.com/lanqy/5193417
 const formatFilesize = sizeInBytes => {

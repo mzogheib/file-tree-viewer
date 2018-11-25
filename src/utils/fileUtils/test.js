@@ -16,11 +16,13 @@ it('checks node type correctly', () => {
   expect(isFile(folder)).toBeFalsy()
   expect(isFile(bad)).toBeFalsy()
   expect(isFile(empty)).toBeFalsy()
+  expect(isFile()).toBeFalsy()
 
   expect(isFolder(folder)).toBeTruthy()
   expect(isFolder(file)).toBeFalsy()
   expect(isFolder(bad)).toBeFalsy()
   expect(isFolder(empty)).toBeFalsy()
+  expect(isFolder()).toBeFalsy()
 })
 
 it('checks if node has children', () => {
