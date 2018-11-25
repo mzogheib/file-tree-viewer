@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { isFile, formatFilesize, hasChildren } from '../../utils/fileUtils'
 
-function FilesSummary({ className, nodes }) {
+function FilesSummary({ nodes }) {
   const initialSummary = { count: 0, size: 0 }
   const getSummary = nodes =>
     nodes.reduce((summary, node) => {
@@ -20,11 +20,9 @@ function FilesSummary({ className, nodes }) {
   const { count, size } = getSummary(nodes)
 
   return (
-    <div className={className}>
+    <div>
       <div>Total Files: {count}</div>
-      <div>
-        <span>Total Filesize: {formatFilesize(size)}</span>
-      </div>
+      <div>Total Filesize: {formatFilesize(size)}</div>
     </div>
   )
 }
@@ -32,6 +30,5 @@ function FilesSummary({ className, nodes }) {
 export default FilesSummary
 
 FilesSummary.propTypes = {
-  className: PropTypes.string,
   nodes: PropTypes.array.isRequired,
 }

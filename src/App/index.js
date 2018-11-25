@@ -29,27 +29,31 @@ class App extends Component {
 
   renderLoading() {
     return (
-      <div className="app__icon-wrapper">
+      <section className="app__icon-wrapper">
         <Icon className="app__icon" type="Spinner" spin={true} />
         <small>Server may be waking up ... hang in there.</small>
-      </div>
+      </section>
     )
   }
 
   renderError() {
     return (
-      <div className="app__icon-wrapper">
+      <section className="app__icon-wrapper">
         <Icon className="app__icon" type="Frown" />
         <small>Could not load files.</small>
-      </div>
+      </section>
     )
   }
 
   renderContent(nodes) {
     return (
       <div>
-        <FileTree nodes={nodes} />
-        <FilesSummary className="app__files-summary" nodes={nodes} />
+        <section>
+          <FileTree nodes={nodes} />
+        </section>
+        <footer className="app__files-summary">
+          <FilesSummary nodes={nodes} />
+        </footer>
       </div>
     )
   }
@@ -60,14 +64,14 @@ class App extends Component {
     const ready = !this.state.loading && !this.state.error
     return (
       <div className="app">
-        <div className="app__window">
+        <main className="app__window">
           <TitleBar />
           <div className="app__window-content">
             {loading && this.renderLoading()}
             {error && this.renderError()}
             {ready && this.renderContent(this.state.nodes)}
           </div>
-        </div>
+        </main>
       </div>
     )
   }
