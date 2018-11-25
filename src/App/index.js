@@ -29,7 +29,7 @@ class App extends Component {
 
   renderLoading() {
     return (
-      <div className="app__window-content--none">
+      <div className="app__icon-wrapper">
         <Icon className="app__icon" type="Spinner" spin={true} />
         <small>Server may be waking up ... hang in there.</small>
       </div>
@@ -38,7 +38,7 @@ class App extends Component {
 
   renderError() {
     return (
-      <div className="app__window-content--none">
+      <div className="app__icon-wrapper">
         <Icon className="app__icon" type="Frown" />
         <small>Could not load files.</small>
       </div>
